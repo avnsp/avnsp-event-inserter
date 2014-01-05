@@ -1,0 +1,26 @@
+PATH
+  remote: ../thumper
+  specs:
+    thumper (0.0.1)
+      bunny
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    amq-protocol (1.9.2)
+    bunny (1.0.7)
+      amq-protocol (>= 1.9.2)
+    pg (0.17.1)
+    sequel (4.6.0)
+    sequel_pg (1.6.8)
+      pg (>= 0.8.0)
+      sequel (>= 3.39.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pg
+  sequel
+  sequel_pg
+  thumper!
