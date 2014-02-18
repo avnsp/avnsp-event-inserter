@@ -1,6 +1,6 @@
 require 'bundler/setup'
 
-require 'thumper'
+require './thumper'
 
 TH = Thumper::Base.new(publish_to: 'amqp://localhost/avnsp',
                        consume_from: 'amqp://localhost/avnsp')
