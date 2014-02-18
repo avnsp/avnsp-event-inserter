@@ -2,11 +2,11 @@ require 'bundler/setup'
 
 require './thumper'
 
-TH = Thumper::Base.new(publish_to: 'amqp://localhost/avnsp',
-                       consume_from: 'amqp://localhost/avnsp')
+TH = Thumper::Base.new(publish_to: ENV['CLOUDAMQP_URL'] || 'amqp://localhost/avnsp',
+                       consume_from: ENV['CLOUDAMQP_URL'] || 'amqp://localhost/avnsp')
 
 require 'sequel'
-DB = Sequel.connect 'postgres://localhost/avnsp'
+DB = Sequel.connect ENV['ELEPHANTSQL_URL'] || 'postgres://localhost/avnsp'
 
 TH.with_channel prefetch: 100 do |ch|
   ch.subscribe 'event.photo.create', 'photo.uploaded' do |data|
